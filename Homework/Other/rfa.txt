@@ -1,0 +1,5 @@
+2025-01-08 16:01:04,328 test1 [FATAL] Fatal Message
+2025-01-08 16:01:04,328 test1 [ALERT] Alert Message
+2025-01-08 16:01:04,328 test1 [CRIT] Crit Message
+2025-01-08 16:01:04,328 test1 [ERROR] Error Message
+2025-01-08 16:01:04,328 test1 [WARN] Warn Message

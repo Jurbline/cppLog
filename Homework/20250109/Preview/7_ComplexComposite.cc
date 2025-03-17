@@ -1,0 +1,71 @@
+#include <iostream>
+
+using std::cout;
+using std::endl;
+
+//复数
+
+class Complex
+{
+    friend Complex operator+(const Complex &lhs,const Complex &rhs);
+    friend Complex operator+=(Complex &lhs,const Complex &rhs);
+public:
+    Complex(double dreal = 0.0 , double dimag = 0.0)
+    :_dreal(dreal)
+    ,_dimag(dimag)
+    {
+        cout << "Complex(double dreal = 0.0 , double dimag = 0.0)" << endl;
+    }
+
+    void print() const
+    {
+        cout << _dreal << "+" << _dimag << "i" << endl;
+    }
+
+    ~Complex()
+    {
+        cout << "~Complex()" << endl;
+    }
+
+private:
+    double _dreal;
+    double _dimag;
+};
+
+Complex operator+(const Complex &lhs,const Complex &rhs)
+{
+    cout << "Complex operator+(const Complex &lhs,const Complex &rhs)" << endl;
+    double real = lhs._dreal + rhs._dreal;
+    double imag = lhs._dimag + rhs._dimag;
+    return Complex(real,imag);
+    /* return Complex(lhs._dreal + rhs._dreal,lhs._dimag+rhs._dimag); */
+}
+
+Complex operator+=(Complex &lhs,const Complex &rhs)
+{
+    lhs._dreal += rhs._dreal;
+    lhs._dimag += rhs._dimag;
+    return lhs;
+}
+void test()
+{
+    Complex com1(1,2);
+    cout << "com1 = ";
+    com1.print();
+
+    Complex com2(3,4);
+    cout << "com2 = ";
+    com2.print();
+
+    cout << endl;
+    com2 += com1;
+    cout << "com3 = ";
+    com2.print();
+}
+
+int main()
+{
+    test();
+    return 0;
+}
+
