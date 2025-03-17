@@ -1,2 +1,0 @@
-2025-01-08 15:59:47,696 MyCat [FATAL]: This is a emerg message
-2025-01-08 15:59:47,697 MyCat [ERROR]: This is a error message

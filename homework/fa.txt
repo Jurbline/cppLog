@@ -1,5 +1,0 @@
-1736323264 FATAL test1 : Fatal Message
-1736323264 ALERT test1 : Alert Message
-1736323264 CRIT test1 : Crit Message
-1736323264 ERROR test1 : Error Message
-1736323264 WARN test1 : Warn Message
