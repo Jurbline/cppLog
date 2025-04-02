@@ -87,7 +87,7 @@ map<string,int> &webPage::getWordsMap()
             isExit = 1;
         }
     }
-    return _wordMap;
+    return _wordsMap;
 }
 
 //本函数使用KMP算法，从字符串中寻找子串，然后获取对应的
@@ -100,7 +100,7 @@ void webPage::processDoc(const string & doc)
     KMP kmp;
     string doc1 = "<docid>";
     string doc2 = "</docid>";
-    int dm1 = kmp(doc,doc1) + doc.size();//这里kmp找到的是包括<docid>在内的起始位置，为了得到
+    int dm1 = kmp(doc,doc1) + doc1.size();//这里kmp找到的是包括<docid>在内的起始位置，为了得到
                                          //docid，则需要加上"<docid>"的长度就是docid的起始位置
     int dm2 = kmp(doc,doc2);
     //atoi()的参数是 const char* 

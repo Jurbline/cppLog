@@ -123,7 +123,7 @@ void Pagelib::store()
         ofs << "</doc>" << endl;
         size_t endpos = ofs.tellp();
         size_t len = endpos - beginpos;//文章长度（包括<xxx>）
-        ofs << len << "\n";
+        ofs1 << len << "\n";
     }
     cout << "Successful store the pagelib and offset!!!" << endl;
     ofstream ofs2;//倒排索引库

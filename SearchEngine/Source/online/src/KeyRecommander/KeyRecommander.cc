@@ -60,7 +60,7 @@ void KeyRecommander::initFinalResult(vector<string> &finalResult)
         _prique.pop();
     }
 }
-void eraseFinalResult(vector<string> &finalResult)
+void KeyRecommander::eraseFinalResult(vector<string> &finalResult)
 {
     size_t resultSize = finalResult.size();
     if(resultSize > 5)

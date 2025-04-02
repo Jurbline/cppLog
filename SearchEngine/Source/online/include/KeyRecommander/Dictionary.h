@@ -34,7 +34,6 @@ public:
     void loadIndex();
     void loadIdMap();
 
-    ~Dictionary();
 
 private:
     DISALLOWCOPYANDASSIGN(Dictionary);

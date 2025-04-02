@@ -36,7 +36,7 @@ void LRUCache::put(string key,vector<string> value)
         //从哈希表 _cache 中删除链表尾部节点的键。
         //从链表 _nodes 中移除尾部节点（最久未使用的节点）
         _cache.erase(_nodes.back().key);
-        _nodes.pop_back;
+        _nodes.pop_back();
     }
 }
 //将key与满足key的候选词val添加到待更新的链表中，也就是放在list尾部

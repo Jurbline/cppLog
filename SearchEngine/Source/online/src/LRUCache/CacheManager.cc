@@ -4,9 +4,13 @@
 namespace SearchEngine
 {
 CacheManager *CacheManager::_pInstance = nullptr;
-
-CacheManager::CacheManager()
+CacheManager::CacheManager() 
 {
+	//初始化函数中填了文件名字，但是文件名字确没有起作用，
+	//因为根本就没有用到文件名
+	//这里可以增加优化，读取文件中的缓存信息，也可以将缓存
+	//信息写入文件中，做一个持久化的处理
+    init("data/cache.dat");
 }
 CacheManager *CacheManager::getInstance()
 {
@@ -21,8 +25,8 @@ void CacheManager::init(const string &filename)
 {
     //将缓存的大小预设为7
     //预留vector的存储空间
-    _caches.reverse(7);
-    _caches2.reverse(7);
+    _caches.reserve(7);
+    _caches2.reserve(7);
 
     for(int i = 0; i < 7 ;++i)
     {

@@ -149,7 +149,7 @@ vector<double> WebPageQuery::getQueryWordsWeightVector(vector<string> & queryWor
 		//存放每个词的权重到tmp中存起来
         tmp.push_back(w);
     }
-    double Allw = 0.0;
+    double AllW = 0.0;
     for(double w : tmp)
     {
         AllW += w * w;
@@ -205,7 +205,7 @@ bool WebPageQuery::executeQuery(const vector<string> &queryWords,
         //求集合差的函数 set_difference() 
         //和合并两个集合的函数 set_union()
         set_intersection(SameWeb.begin(),SameWeb.end()//第一个有序区间
-                         ,existWed[i].begin(),existWed[i].end()//第二个有序区间
+                         ,existWed[i].begin(),existWed[i].end(),//第二个有序区间
                          inserter(tmp,tmp.end()));//输出插入到tmp中
         SameWeb.swap(tmp);
     }
@@ -258,7 +258,7 @@ vector<string> WebPageQuery::create_Json(vector<int> &docidVec,
     for(auto & docid : docidVec)
     {
         string res;
-        string Summary = _pageLib[docid].Summary(queryWords);//摘要
+        string Summary = _pageLib[docid].summary(queryWords);//摘要
         string Title = _pageLib[docid].getTile();
         string Url = _pageLib[docid].getUrl();
         char buf[65536] = {0};
@@ -293,11 +293,11 @@ void WebPageQuery::loadLibary()//loadLibrary加载库文件
     //加载网页库，存在容器中
     ifstream ifsPage;
     ifsPage.open("../offline/page/data/ripepage.dat");
-    cout << "(WebPageQuery): loading ripepage.dat" << endl;
+    cout << "(WebPageQuery): loading ripepage.dat..." << endl;
 
     for(auto it = _offsetLib.begin();it != _offsetLib.end(); ++it)
     {
-        int begin = it->second.first();
+        int begin = it->second.first;
         const size_t size = it->second.second;
         char buf[65536] = {0};
         string line;
